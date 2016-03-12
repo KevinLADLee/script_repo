@@ -22,7 +22,7 @@ sudo make install
 
 sudo cat >/etc/shadowsocks.json <<EOL
 {
-    "server":"45.117.100.175",
+    "server":"45.117.100.***",
     "server_port":443,
     "local_port":1080,
     "password":"womenyoujiecao",
