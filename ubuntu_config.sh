@@ -6,11 +6,11 @@
 
 mkdir ~/Repositories
 cd ~/Repositories
-
+export http_proxy=http://10.20.1.71:19877/ https_proxy=http://10.20.1.71:19877/
 #oh-my-zsh
 #sudo -s
 #apt-get update
-apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo
+sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 chsh -s `which zsh`
 
@@ -22,27 +22,27 @@ sudo make install
 
 sudo cat >/etc/shadowsocks.json <<EOL
 {
-    "server":"45.117.100.***",
-    "server_port":443,
+    "server":"103.200.112.175",
+    "server_port":7388,
     "local_port":1080,
     "password":"womenyoujiecao",
     "timeout":600,
-    "method":"aes-128-cfb"
+    "method":"aes-256-cfb"
 }
 EOL
 ss-local -c /etc/shadowsocks.json &
 
 
 #polipo
-service polipo stop
+sudo service polipo stop
 polipo socksParentProxy=localhost:1080 &
-export http_proxy=localhost:1080
+export http_proxy=http://localhost:1080 https_proxy=http://localhost:1080
 
 
 #Chrome
 #TO-DO: Detect arm/x64 and figure out Chrome or Chromium
 #x64
-apt-get install libxss1 libappindicator1 libindicator7
+sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 #arm
