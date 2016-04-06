@@ -30,20 +30,20 @@ sudo cat >/etc/shadowsocks.json <<EOL
     "method":"aes-256-cfb"
 }
 EOL
-ss-local -c /etc/shadowsocks.json &
+sudo ss-local -c /etc/shadowsocks.json &
 
 
 #polipo
 sudo service polipo stop
 polipo socksParentProxy=localhost:1080 &
-export http_proxy=http://localhost:1080 https_proxy=http://localhost:1080
+export http_proxy=http://localhost:1080/ https_proxy=https://localhost:1080/
 
 
 #Chrome
 #TO-DO: Detect arm/x64 and figure out Chrome or Chromium
 #x64
 sudo apt-get install libxss1 libappindicator1 libindicator7
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget -O google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 #arm
 #sudo apt-get install chromium-browser
@@ -54,15 +54,15 @@ sudo dpkg -i google-chrome*.deb
 #x64 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
-sudo apt-get install libgl1-mesa-dev-lts-utopic
+#sudo apt-get install libgl1-mesa-dev-lts-utopic
 #Modify ROS version here.
 sudo apt-get update
-sudo apt-get install ros-jade-desktop-full
+sudo apt-get install -y ros-indigo-desktop-full
 
 #Network Speed Monitor
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt-get update
-sudo apt-get install indicator-netspeed
+sudo apt-get install -y indicator-netspeed
 
 #arm (Could be a little slippery here.)
 #sudo update-locale LANG=C LANGUAGE=C LC_ALL=C LC_MESSAGES=POSIX
