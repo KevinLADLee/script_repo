@@ -58,6 +58,22 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB0
 #Modify ROS version here.
 sudo apt-get update
 sudo apt-get install -y ros-indigo-desktop-full
+sudo apt-get install python-rosinstall
+
+#ROS Configuration
+sudo rosdep init
+rosdep update
+
+echo "source /opt/ros/jade/setup.zsh" >> ~/.zshrc
+source ~/.zshrc
+
+mkdir -p ~/Repositories/catkin_ws/src
+cd ~/Repositories/catkin_ws/src
+catkin_init_workspace
+cd ~/Repositories/catkin_ws/
+catkin_make
+source devel/setup.zsh
+echo "source ~/Repositories/catkin_ws/devel/setup.zsh" >> ~/.zshrc
 
 #Network Speed Monitor
 sudo add-apt-repository ppa:nilarimogard/webupd8
