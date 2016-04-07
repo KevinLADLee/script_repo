@@ -10,7 +10,7 @@ export http_proxy=http://10.20.1.71:19877/ https_proxy=http://10.20.1.71:19877/
 #oh-my-zsh
 #sudo -s
 #apt-get update
-sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator htop
+sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator htop nethogs iftop iotop
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 sudo chsh -s `which zsh`
 
@@ -60,10 +60,11 @@ sudo apt-get update
 sudo apt-get install -y ros-indigo-desktop-full python-rosinstall ros-indigo-ros-tutorials
 
 #ROS Configuration
+
 sudo rosdep init
 rosdep update
 
-echo "source /opt/ros/jade/setup.zsh" >> ~/.zshrc
+echo "source /opt/ros/indigo/setup.zsh" >> ~/.zshrc
 source ~/.zshrc
 
 mkdir -p ~/Repositories/catkin_ws/src
@@ -74,6 +75,7 @@ catkin_make
 source devel/setup.zsh
 echo "source ~/Repositories/catkin_ws/devel/setup.zsh" >> ~/.zshrc
 
+sudo apt-get install -y ros-indigo-libuvc-camera
 #Network Speed Monitor
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt-get update
