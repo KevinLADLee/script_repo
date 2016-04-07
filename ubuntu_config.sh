@@ -79,9 +79,14 @@ sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt-get update
 sudo apt-get install -y indicator-netspeed
 
-#CUDA
 
 cd ~/Downloads/
+
+#Sublime Text
+wget -O SublimeText3103.deb https://download.sublimetext.com/sublime-text_build-3103_amd64.deb
+sudo dpkg -i SublimeText3103.deb
+
+#CUDA
 wget -O JetPack-L4t-2.1.run http://developer.download.nvidia.com/assets/embedded/secure/tools/files/jetpack_2.1/02/JetPack-L4T-2.1-linux-x64.run?autho=1460008199_e6b55095cb7b177524f00b45e451dab3&file=JetPack-L4T-2.1-linux-x64.run
 sudo chmod +x JetPack-L4t-2.1.run
 cd ..
