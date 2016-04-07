@@ -10,7 +10,7 @@ export http_proxy=http://10.20.1.71:19877/ https_proxy=http://10.20.1.71:19877/
 #oh-my-zsh
 #sudo -s
 #apt-get update
-sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator htop nethogs iftop iotop
+sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator htop nethogs iftop iotop xbindkeys xbindkeys-config  xautomation xev cmake-gui
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 sudo chsh -s `which zsh`
 
@@ -57,7 +57,7 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB0
 #sudo apt-get install libgl1-mesa-dev-lts-utopic
 #Modify ROS version here.
 sudo apt-get update
-sudo apt-get install -y ros-indigo-desktop-full python-rosinstall ros-indigo-ros-tutorials
+sudo apt-get install -y ros-indigo-desktop-full python-rosinstall ros-indigo-ros-tutorials ros-indigo-usb-cam
 
 #ROS Configuration
 
