@@ -57,8 +57,7 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB0
 #sudo apt-get install libgl1-mesa-dev-lts-utopic
 #Modify ROS version here.
 sudo apt-get update
-sudo apt-get install -y ros-indigo-desktop-full
-sudo apt-get install python-rosinstall
+sudo apt-get install -y ros-indigo-desktop-full python-rosinstall ros-indigo-ros-tutorials
 
 #ROS Configuration
 sudo rosdep init
