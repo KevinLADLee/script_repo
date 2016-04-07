@@ -2,7 +2,7 @@
 
 #This is a config script for Ubuntu, customized especially for myself.
 #Before running the script, determine the platform is x64 or arm, and the version of ROS.
-#sudo apt-get update && sudo ./ubuntu_config.sh to run this script
+#sudo apt-get update && sudo ./ubuntu_config.sh | tee ubuntu_config_log.txt  to run this script
 
 mkdir ~/Repositories
 cd ~/Repositories
@@ -78,6 +78,15 @@ echo "source ~/Repositories/catkin_ws/devel/setup.zsh" >> ~/.zshrc
 sudo add-apt-repository ppa:nilarimogard/webupd8
 sudo apt-get update
 sudo apt-get install -y indicator-netspeed
+
+#CUDA
+
+cd ~/Downloads/
+wget -O JetPack-L4t-2.1.run http://developer.download.nvidia.com/assets/embedded/secure/tools/files/jetpack_2.1/02/JetPack-L4T-2.1-linux-x64.run?autho=1460008199_e6b55095cb7b177524f00b45e451dab3&file=JetPack-L4T-2.1-linux-x64.run
+sudo chmod +x JetPack-L4t-2.1.run
+cd ..
+./Downloads/JetPack-L4T-2.1.run
+
 
 #arm (Could be a little slippery here.)
 #sudo update-locale LANG=C LANGUAGE=C LC_ALL=C LC_MESSAGES=POSIX
