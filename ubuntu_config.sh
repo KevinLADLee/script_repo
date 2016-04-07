@@ -10,7 +10,7 @@ export http_proxy=http://10.20.1.71:19877/ https_proxy=http://10.20.1.71:19877/
 #oh-my-zsh
 #sudo -s
 #apt-get update
-sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator
+sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator htop
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 sudo chsh -s `which zsh`
 
