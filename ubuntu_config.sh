@@ -2,7 +2,7 @@
 
 #This is a config script for Ubuntu, customized especially for myself.
 #Before running the script, determine the platform is x64 or arm, and the version of ROS.
-#Before running, sudo -s and apt-get update
+#sudo apt-get update && sudo ./ubuntu_config.sh to run this script
 
 mkdir ~/Repositories
 cd ~/Repositories
@@ -10,9 +10,9 @@ export http_proxy=http://10.20.1.71:19877/ https_proxy=http://10.20.1.71:19877/
 #oh-my-zsh
 #sudo -s
 #apt-get update
-sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo
+sudo apt-get -y install vim zsh git-core build-essential autoconf libtool libssl-dev polipo terminator
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-chsh -s `which zsh`
+sudo chsh -s `which zsh`
 
 #shadowsocks-libev
 git clone https://github.com/shadowsocks/shadowsocks-libev.git
@@ -36,7 +36,7 @@ sudo ss-local -c /etc/shadowsocks.json &
 #polipo
 sudo service polipo stop
 polipo socksParentProxy=localhost:1080 &
-export http_proxy=http://localhost:1080/ https_proxy=https://localhost:1080/
+export http_proxy=http://localhost:8123/ https_proxy=https://localhost:8123/
 
 
 #Chrome
